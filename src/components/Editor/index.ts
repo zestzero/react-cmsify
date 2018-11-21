@@ -1,3 +1,9 @@
+import Menu from './Menu/Menu';
 import PlaceHolder from './PlaceHolder/PlaceHolder';
+import StarterHolder from './StarterHolder/StarterHolder';
 
-export { PlaceHolder }
+export {
+    Menu,
+    PlaceHolder,
+    StarterHolder
+}

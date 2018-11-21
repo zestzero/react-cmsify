@@ -10,7 +10,7 @@ interface IStore {
 const Root = ({ store }: IStore) => (
   <Provider store={store}>
     <Router>
-      <Route path="/:filter?" component={HomePage} />
+      <Route exact={true} path="/" component={HomePage} />
     </Router>
   </Provider>
 )

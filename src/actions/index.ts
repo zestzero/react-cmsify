@@ -5,7 +5,7 @@ export interface ISelectComponent {
     type: constants.SELECT_COMPONENT
 }
 
-export type ChangePageAction = ISelectComponent
+export type ChangeComponentAction = ISelectComponent
 
 export function SelectComponentAction(selectedComponent: string): ISelectComponent {
     return {
