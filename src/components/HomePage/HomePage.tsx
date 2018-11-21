@@ -1,18 +1,30 @@
 import * as React from 'react';
-import './HomePage.css';
+import { PlaceHolder } from '../Editor';
 
-class HomePage extends React.Component {
+interface IResult {
+  name: string
+  content: string
+}
+
+interface IProps {
+  data: IResult[]
+}
+
+interface IState {
+  data: IResult[]
+}
+
+class HomePage extends React.Component<IProps, IState> {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+      <div className="HomePage">
+       <div className="HomePage__layout"><PlaceHolder onAddClick={this.onAddClick} /></div>
       </div>
     );
+  }
+
+  private onAddClick () {
+    return null;
   }
 }
 
