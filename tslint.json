@@ -19,5 +19,8 @@
     },
     "rulesDirectory": [
         "./src"
-    ]
+    ],
+    "compilerOptions": {
+        "baseUrl": "./src"
+    }
 }
