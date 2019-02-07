@@ -3,6 +3,7 @@ import { withFirebase } from '../../containers/Firebase';
 
 interface IProps {
   id: number;
+  className: string;
   firebase: any;
 }
 
@@ -22,7 +23,7 @@ class Cms extends React.PureComponent<IProps, IState> {
   }
   public render() {
     return this.state.data ? (
-      <span>{this.state.data}</span>
+      <span className={this.props.className}>{this.state.data}</span>
     ) : (
       <span>Loading ...</span>
     );
