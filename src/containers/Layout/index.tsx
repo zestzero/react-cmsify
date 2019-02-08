@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
-import { Form } from 'semantic-ui-react';
-import { Cms } from '../../components';
+import { Button, Segment } from 'semantic-ui-react';
+
 import FormComponent from '../../components/Form';
 import TextInput from '../../components/Form/Textfield';
+import ContentPage from '../ContentPage';
 
-import './style.css';
+import './style.scss';
 
 class Layout extends Component {
   public render() {
     return (
       <div className="Layout">
-          <FormComponent>
-            <Form.Group widths="equal">
-              <TextInput label="Cms ID" placeHolder="Any number that should not exist in DB" />
-              <TextInput label="Text" placeHolder="Text" />
-            </Form.Group>
-          </FormComponent>
-          <Cms id={1} />
+        {this.renderForm()}
+        <ContentPage />
       </div>
     );
   }
+
+  private renderForm = () => (
+    <Segment color="violet">
+    <FormComponent
+      components={[
+        <React.Fragment>
+          <TextInput
+            label="Cms ID"
+            placeHolder="Any number that should not exist in DB"
+          />
+          <TextInput label="Text" placeHolder="Text" />
+        </React.Fragment>,
+        <Button.Group>
+          <Button>Cancel</Button>
+          <Button.Or />
+          <Button positive>Save</Button>
+        </Button.Group>,
+      ]}
+    />
+    </Segment>
+  )
 }
 
 export default Layout;

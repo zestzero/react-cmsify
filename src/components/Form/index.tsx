@@ -2,12 +2,17 @@ import React from 'react';
 import { Form } from 'semantic-ui-react';
 
 interface IProps {
-  children: React.ReactElement<any>;
+  className?: string;
+  components: React.ReactNode[];
 }
 
-const FormComponent = ({ children }: IProps) => (
-  <Form>
-    {children}
+const FormComponent = ({ className, components }: IProps) => (
+  <Form className={className}>
+    {components.map((comp, index) => (
+      <Form.Group key={`form-group-${index}`} widths="equal">
+        {comp}
+      </Form.Group>
+    ))}
   </Form>
 );
 
