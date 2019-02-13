@@ -5,10 +5,11 @@ interface IProps {
     label: string;
     placeHolder: string;
     error?: boolean;
+    onChange?: (e: any) => void;
 }
 
-const TextInput = ({ label, placeHolder, error }: IProps) => (
-    <Form.Input fluid label={label} placeholder={placeHolder} error={error} />
+const TextInput = ({ label, placeHolder, error, onChange }: IProps) => (
+    <Form.Input fluid label={label} placeholder={placeHolder} error={error} onChange={onChange} />
 );
 
 export default TextInput;

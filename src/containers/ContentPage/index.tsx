@@ -3,7 +3,10 @@ import Cms from '../../components/Cms';
 
 const ContentPage = () => {
     return (
-        <Cms id={1} />
+        <React.Fragment>
+            <Cms id={1} />
+            <Cms id={2} />
+        </React.Fragment>
     );
 };
 

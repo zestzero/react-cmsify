@@ -1,5 +1,6 @@
 import app from 'firebase/app';
 import 'firebase/database';
+import { ICmsData } from '../types/ICmsData';
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -20,6 +21,10 @@ class FirebaseService {
     public getCmsData = async (id: number) => {
       const snapshot = await this.database.ref(`/cms/${id}`).once('value');
       return snapshot.val();
+    }
+
+    public storeCmsData = (data: ICmsData) => {
+      this.database.ref(`/cms/${data.id}`).set(data.text);
     }
 }
 

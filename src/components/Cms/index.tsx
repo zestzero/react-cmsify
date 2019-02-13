@@ -1,5 +1,6 @@
 import React from 'react';
 import { withFirebase } from '../../containers/Firebase';
+import CmsContext from '../../context/cms';
 
 interface IProps {
   id: number;
@@ -23,7 +24,14 @@ class Cms extends React.PureComponent<IProps, IState> {
   }
   public render() {
     return this.state.data ? (
-      <span className={this.props.className}>{this.state.data}</span>
+      <CmsContext.Consumer>
+        {(shouldDisplayCmsId) => (
+          <span className={this.props.className}>
+            {shouldDisplayCmsId && `[ID:${this.props.id}]`}
+            {this.state.data}
+          </span>
+        )}
+      </CmsContext.Consumer>
     ) : (
       <span>Loading ...</span>
     );
